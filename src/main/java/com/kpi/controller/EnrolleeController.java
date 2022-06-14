@@ -56,21 +56,24 @@ public class EnrolleeController {
         switch (option) {
             case 1:
                 inMemoreEnrollees = EnrolleeGenerator.generateEnrollees();
+                view.printMessage("We've generated 10 new enrollees!");
+                view.printEnrollees(inMemoreEnrollees);
+                view.printMessage("You can save them choosing appropriate option.");
+                if (view.confirmSaving()){
+                    service.setEnrollees(inMemoreEnrollees);
+                }
                 break;
             case 2:
-                service.setEnrollees(inMemoreEnrollees);
-                break;
-            case 3:
                 view.printEnrollees(service.getEnrollees());
                 break;
-            case 4:
+            case 3:
                 view.printEnrollees(service.GetEnrolleesWithBadMarks());
                 break;
-            case 5:
+            case 4:
                 double minGPA = view.getMinGPA();
                 view.printEnrollees(service.GetEnrolleesWithGPAHigherThan(minGPA));
                 break;
-            case 6:
+            case 5:
                 view.exit();
                 return false;
         }

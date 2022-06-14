@@ -31,7 +31,7 @@ public class EnrolleeGenerator {
 
     private static final String[] ADDRESSES = new String[]{
             "Pylypa Orlyka St", "Lesi Ukrainky St", "Prorizna St",
-            "Arsenal'na Square", "Oleksandra Kopylenka St", "Mykhaila Нrushevs'kogo St",
+            "Arsenal'na Square", "Kopylenka St", "Hrushevs'kogo St",
             "Khreshatyk St", "Peremohy St", "Shota Rustaveli St"
     };
 

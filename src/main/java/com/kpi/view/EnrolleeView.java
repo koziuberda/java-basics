@@ -41,11 +41,10 @@ public class EnrolleeView {
 
     private void printAvailableOptions() {
         printMessage("Enter [1] to generate new 10 enrollees");
-        printMessage("Enter [2] to save data");
-        printMessage("Enter [3] to print enrollees");
-        printMessage("Enter [4] to get enrollees with bad grades");
-        printMessage("Enter [5] to get enrollees with min. GPA");
-        printMessage("Enter [6] to exit with saving data");
+        printMessage("Enter [2] to print enrollees");
+        printMessage("Enter [3] to get enrollees with bad grades");
+        printMessage("Enter [4] to get enrollees with min. GPA");
+        printMessage("Enter [5] to exit without saving data");
     }
 
     public double getMinGPA() {
@@ -63,6 +62,19 @@ public class EnrolleeView {
             SCANNER.next();
         }
         return SCANNER.nextInt();
+    }
+
+    public boolean confirmSaving(){
+        printMessage("Do you want to save the data? [Y/N]");
+        String response = "_";
+        response = SCANNER.next();
+
+        while (!response.equalsIgnoreCase("y") && !response.equalsIgnoreCase("n")){
+            printMessage("The supposed reply is Y or N. Please, try again");
+            response = SCANNER.nextLine();
+        }
+
+        return response.equalsIgnoreCase("y");
     }
 
     public void exit() {
