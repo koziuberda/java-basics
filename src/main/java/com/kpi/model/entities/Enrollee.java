@@ -84,11 +84,9 @@ public class Enrollee {
 
     @Override
     public String toString() {
-        String format = "name = %s | surname = %s | " +
-                " patronymic = %s | address = %s | " +
-                "phoneNumber = %s | identificationNumber = %d | ";
+        String format = "| %15s | %15s | %15s | %20s | %18s | %21d | ";
         String personalDetails = String.format(format, name, surname, patronymic, address, phoneNumber, identificationNumber);
-        String grades = "grades: " + Arrays.toString(this.grades);
+        String grades = Arrays.toString(this.grades) + " |";
         return personalDetails + grades;
     }
 }

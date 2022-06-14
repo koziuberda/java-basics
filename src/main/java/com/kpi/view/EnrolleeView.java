@@ -8,7 +8,12 @@ import java.util.Scanner;
 public class EnrolleeView {
 
     public static final Scanner SCANNER = new Scanner(System.in);
-    public static final String CURRENT_LIST_OF_ENROLLEES = "Here is the list of enrollees.";
+    public static final String LIST_HEADER = """
+            +-----------------+-----------------+-----------------+----------------------+--------------------+-----------------------+--------------------------------+
+            +       Name      |      Surname    |    Patronymic   |        Address       |     Phone number   | Identification number |             Grades             |
+            +-----------------+-----------------+-----------------+----------------------+--------------------+-----------------------+--------------------------------+""";
+    public static final String LIST_FOOTER =
+            "+-----------------+-----------------+-----------------+----------------------+--------------------+-----------------------+--------------------------------+";
     public static final String EMPTY_LIST = "Your list is empty!";
     public static final String FAILED_TO_LOAD_DATA = "Failed to load data.";
     public static final String PROBLEM_WITH_STORAGE = "Can't load the storage";
@@ -21,7 +26,11 @@ public class EnrolleeView {
     public void printEnrollees(List<Enrollee> enrollees) {
         if(enrollees == null || enrollees.isEmpty()) {
             printMessage(EMPTY_LIST);
-        } else enrollees.forEach(System.out::println);
+        } else {
+            printMessage(LIST_HEADER);
+            enrollees.forEach(System.out::println);
+            printMessage(LIST_FOOTER);
+        }
     }
 
     public int getUserDecision() {

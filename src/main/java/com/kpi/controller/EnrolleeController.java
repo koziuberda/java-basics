@@ -33,8 +33,6 @@ public class EnrolleeController {
     }
 
     public void start() {
-
-        view.printMessage(EnrolleeView.CURRENT_LIST_OF_ENROLLEES);
         try {
             view.printEnrollees(service.getEnrollees());
         } catch (IOException e) {
