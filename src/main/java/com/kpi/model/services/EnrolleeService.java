@@ -1,7 +1,10 @@
 package com.kpi.model.services;
 
 import com.kpi.model.entities.Enrollee;
+import com.kpi.model.exceptions.InvalidGPAValueException;
 import com.kpi.model.repositories.EnrolleeRepository;
+import com.kpi.model.utilities.GPAValidator;
+import com.kpi.view.exceptions.InvalidUserOptionException;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -31,7 +34,9 @@ public class EnrolleeService {
         return list.stream().filter(Enrollee::hasBadMarks).collect(Collectors.toList());
     }
 
-    public List<Enrollee> GetEnrolleesWithGPAHigherThan(double requiredScore) throws IOException {
+    public List<Enrollee> GetEnrolleesWithGPAHigherThan(double requiredScore) throws IOException, InvalidGPAValueException {
+        GPAValidator.validateGPA(requiredScore);
+
         List<Enrollee> list = getEnrollees();
 
         return list.stream().filter(en -> en.getAverageScore() >= requiredScore).collect(Collectors.toList());

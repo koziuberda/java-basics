@@ -1,10 +1,12 @@
 package com.kpi.controller;
 
 import com.kpi.model.entities.Enrollee;
+import com.kpi.model.exceptions.InvalidGPAValueException;
 import com.kpi.model.repositories.EnrolleeFileRepository;
 import com.kpi.model.services.EnrolleeService;
 import com.kpi.model.utilities.EnrolleeGenerator;
 import com.kpi.view.EnrolleeView;
+import com.kpi.view.exceptions.InvalidUserOptionException;
 
 import java.io.File;
 import java.io.FileReader;
@@ -40,7 +42,14 @@ public class EnrolleeController {
         }
 
         while (true){
-            int desicion = view.getUserDecision();
+
+            int desicion = 0;
+            try {
+                desicion = view.getUserDecision();
+            } catch (InvalidUserOptionException e) {
+                view.printMessage(e.getMessage());
+                continue;
+            }
             boolean shouldContinue = false;
             try {
                 shouldContinue = handleUserQuery(desicion);
@@ -71,7 +80,11 @@ public class EnrolleeController {
                 break;
             case 4:
                 double minGPA = view.getMinGPA();
-                view.printEnrollees(service.GetEnrolleesWithGPAHigherThan(minGPA));
+                try {
+                    view.printEnrollees(service.GetEnrolleesWithGPAHigherThan(minGPA));
+                } catch (InvalidGPAValueException e) {
+                    view.printMessage(e.getMessage());
+                }
                 break;
             case 5:
                 view.exit();

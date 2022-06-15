@@ -1,6 +1,8 @@
 package com.kpi.view;
 
 import com.kpi.model.entities.Enrollee;
+import com.kpi.view.exceptions.InvalidUserOptionException;
+import com.kpi.view.utilities.UserOptionsValidator;
 
 import java.util.List;
 import java.util.Scanner;
@@ -33,10 +35,14 @@ public class EnrolleeView {
         }
     }
 
-    public int getUserDecision() {
+    public int getUserDecision() throws InvalidUserOptionException {
         printMessage("What do you want to do?");
         printAvailableOptions();
-        return getIntegerInput();
+        int input = getIntegerInput();
+
+        UserOptionsValidator.validateUserOption(input);
+
+        return input;
     }
 
     private void printAvailableOptions() {
@@ -65,6 +71,7 @@ public class EnrolleeView {
     }
 
     public boolean confirmSaving(){
+        // TODO: fix bug with double message
         printMessage("Do you want to save the data? [Y/N]");
         String response = "_";
         response = SCANNER.next();
