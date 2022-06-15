@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d60f0722-4e0d-4c9e-a372-ba103b838303" name="Changes" comment="Improve application flow">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kpi/controller/EnrolleeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kpi/controller/EnrolleeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kpi/model/entities/Enrollee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kpi/model/entities/Enrollee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kpi/model/services/EnrolleeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kpi/model/services/EnrolleeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kpi/model/utilities/EnrolleeGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kpi/model/utilities/EnrolleeGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kpi/view/EnrolleeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kpi/view/EnrolleeView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />

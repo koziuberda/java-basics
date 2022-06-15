@@ -59,9 +59,9 @@ public class EnrolleeGenerator {
         return source[rnd];
     }
 
-    private static int[] getGrades() {
+    private static List<Integer> getGrades() {
         int size = 10;
-        int[] grades = new int[size];
+        List<Integer> grades = new ArrayList<>();
 
         Random rnd = new Random();
 
@@ -72,8 +72,8 @@ public class EnrolleeGenerator {
         final int minGrade = hasBadGrades ? 2 : 3;
         final int maxGrade = 6;
 
-        for (int i = 0; i < grades.length; i++) {
-            grades[i] = rnd.nextInt(minGrade, maxGrade);
+        for (int i = 0; i < size; i++) {
+            grades.add(rnd.nextInt(minGrade, maxGrade));
         }
 
         return grades;

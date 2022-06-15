@@ -1,6 +1,9 @@
 package com.kpi.model.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Arrays;
+import java.util.List;
 
 public class Enrollee {
     private long identificationNumber;
@@ -9,14 +12,14 @@ public class Enrollee {
     private String patronymic;
     private String address;
     private String phoneNumber;
-    private int[] grades;
+    private List<Integer> grades;
 
 
     public Enrollee() {
         // The parameterless constructor is required for Jackson
     }
 
-    public Enrollee(long identificationNumber, String name, String surname, String patronymic, String address, String phoneNumber, int[] grades) {
+    public Enrollee(long identificationNumber, String name, String surname, String patronymic, String address, String phoneNumber, List<Integer> grades) {
         this.identificationNumber = identificationNumber;
         this.name = name;
         this.surname = surname;
@@ -74,19 +77,29 @@ public class Enrollee {
         this.phoneNumber = phoneNumber;
     }
 
-    public int[] getGrades() {
+    public List<Integer> getGrades() {
         return grades;
     }
 
-    public void setGrades(int[] grades) {
+    public void setGrades(List<Integer> grades) {
         this.grades = grades;
+    }
+
+    @JsonIgnore
+    public double getAverageScore() {
+        return grades.stream().mapToDouble(a -> a).average().orElse(0);
+    }
+
+    @JsonIgnore
+    public boolean hasBadMarks() {
+        return grades.stream().anyMatch(mark -> mark <= 2);
     }
 
     @Override
     public String toString() {
         String format = "| %15s | %15s | %15s | %20s | %18s | %21d | ";
         String personalDetails = String.format(format, name, surname, patronymic, address, phoneNumber, identificationNumber);
-        String grades = Arrays.toString(this.grades) + " |";
+        String grades = this.grades.toString() + " | " + getAverageScore() + " |";
         return personalDetails + grades;
     }
 }

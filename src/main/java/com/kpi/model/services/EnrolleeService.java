@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class EnrolleeService {
     private final EnrolleeRepository repository;
@@ -27,28 +28,12 @@ public class EnrolleeService {
     public List<Enrollee> GetEnrolleesWithBadMarks() throws IOException {
         List<Enrollee> list = getEnrollees();
 
-        return list.stream().filter(this::EnrolleeHasBadMarks).collect(Collectors.toList());
+        return list.stream().filter(Enrollee::hasBadMarks).collect(Collectors.toList());
     }
 
     public List<Enrollee> GetEnrolleesWithGPAHigherThan(double requiredScore) throws IOException {
         List<Enrollee> list = getEnrollees();
 
-        return list.stream().filter(en -> getEntrolleeAverageScore(en) >= requiredScore).collect(Collectors.toList());
-    }
-
-    private double getEntrolleeAverageScore(Enrollee enrollee) {
-        return Arrays.stream(enrollee.getGrades()).average().orElse(0);
-    }
-
-    private boolean EnrolleeHasBadMarks(Enrollee enrollee) {
-        int[] marks = enrollee.getGrades();
-
-        for (int mark: marks) {
-            if (mark <= 2) {
-                return true;
-            }
-        }
-
-        return false;
+        return list.stream().filter(en -> en.getAverageScore() >= requiredScore).collect(Collectors.toList());
     }
 }
