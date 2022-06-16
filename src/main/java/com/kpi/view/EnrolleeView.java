@@ -71,14 +71,12 @@ public class EnrolleeView {
     }
 
     public boolean confirmSaving(){
-        // TODO: fix bug with double message
         printMessage("Do you want to save the data? [Y/N]");
-        String response = "_";
-        response = SCANNER.next();
+        String response = SCANNER.next();
 
         while (!response.equalsIgnoreCase("y") && !response.equalsIgnoreCase("n")){
             printMessage("The supposed reply is Y or N. Please, try again");
-            response = SCANNER.nextLine();
+            response = SCANNER.next();
         }
 
         return response.equalsIgnoreCase("y");

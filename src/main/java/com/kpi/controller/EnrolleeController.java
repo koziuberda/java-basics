@@ -2,11 +2,14 @@ package com.kpi.controller;
 
 import com.kpi.model.entities.Enrollee;
 import com.kpi.model.exceptions.InvalidGPAValueException;
-import com.kpi.model.repositories.EnrolleeFileRepository;
+import com.kpi.model.repositories.EnrolleeRepository;
 import com.kpi.model.services.EnrolleeService;
 import com.kpi.model.utilities.EnrolleeGenerator;
 import com.kpi.view.EnrolleeView;
 import com.kpi.view.exceptions.InvalidUserOptionException;
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.io.File;
 import java.io.FileReader;
@@ -19,8 +22,11 @@ public class EnrolleeController {
     private List<Enrollee> inMemoreEnrollees = new ArrayList<>();
     private final EnrolleeService service;
     private final EnrolleeView view;
+    private static final Logger logger = LogManager.getLogger(EnrolleeController.class);
 
     public EnrolleeController() {
+        logger.info("Initializing the enrollee controller...");
+
         view = new EnrolleeView();
 
         File file = null;
@@ -28,16 +34,20 @@ public class EnrolleeController {
             file = loadFileFromResources();
         } catch (IOException e) {
             view.printMessage(EnrolleeView.FAILED_TO_LOAD_DATA);
+            logger.error("Unable to load the file" + e.getMessage());
             System.exit(0);
         }
 
-        service = new EnrolleeService(new EnrolleeFileRepository(file));
+        service = new EnrolleeService(new EnrolleeRepository(file));
     }
 
     public void start() {
+        logger.info("Application started");
+
         try {
             view.printEnrollees(service.getEnrollees());
         } catch (IOException e) {
+            logger.error("Can't extract the data from the enrollee storage");
             view.printMessage(EnrolleeView.PROBLEM_WITH_STORAGE);
         }
 
@@ -59,6 +69,8 @@ public class EnrolleeController {
 
             if (!shouldContinue) break;
         }
+
+        logger.info("Application finished");
     }
 
     private boolean handleUserQuery(int option) throws IOException {

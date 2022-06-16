@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d60f0722-4e0d-4c9e-a372-ba103b838303" name="Changes" comment="Add custom exceptions and validators">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kpi/model/exceptions/InvalidGPAValueException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kpi/model/utilities/GPAValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kpi/view/exceptions/InvalidUserOptionException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/kpi/view/utilities/UserOptionsValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kpi/controller/EnrolleeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kpi/controller/EnrolleeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kpi/model/repositories/EnrolleeFileRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/kpi/model/repositories/EnrolleeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kpi/model/repositories/EnrolleeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kpi/model/services/EnrolleeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kpi/model/services/EnrolleeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kpi/view/EnrolleeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kpi/view/EnrolleeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +45,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -106,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655254884684</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add custom exceptions and validators">
+      <created>1655319943101</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1655319943101</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -132,19 +142,10 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/kpi/model/repositories/EnrolleeFileRepository.java</url>
-          <line>19</line>
-          <properties class="com.kpi.model.repositories.EnrolleeFileRepository" method="getAll">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/kpi/model/utilities/JSONConverter.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/kpi/view/EnrolleeView.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

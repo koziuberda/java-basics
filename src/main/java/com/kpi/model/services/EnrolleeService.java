@@ -4,13 +4,10 @@ import com.kpi.model.entities.Enrollee;
 import com.kpi.model.exceptions.InvalidGPAValueException;
 import com.kpi.model.repositories.EnrolleeRepository;
 import com.kpi.model.utilities.GPAValidator;
-import com.kpi.view.exceptions.InvalidUserOptionException;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class EnrolleeService {
     private final EnrolleeRepository repository;
