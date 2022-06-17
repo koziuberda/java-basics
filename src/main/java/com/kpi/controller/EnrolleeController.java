@@ -79,7 +79,7 @@ public class EnrolleeController {
                 try {
                     view.printEnrollees(service.GetEnrolleesWithGPAHigherThan(minGPA));
                 } catch (InvalidGPAValueException e) {
-                    view.printMessage(e.getMessage());
+                    view.printMessage("GPA value must be between 1 and 5 inclusive");
                 }
                 break;
             case 5:
