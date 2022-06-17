@@ -6,7 +6,6 @@ import com.kpi.model.repositories.EnrolleeRepository;
 import com.kpi.model.services.EnrolleeService;
 import com.kpi.model.utilities.EnrolleeGenerator;
 import com.kpi.view.EnrolleeView;
-import com.kpi.view.exceptions.InvalidUserOptionException;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -43,17 +42,11 @@ public class EnrolleeController {
         logger.info("Application started");
 
         while (true){
+            int decision = view.getUserDecision();
 
-            int desicion;
-            try {
-                desicion = view.getUserDecision();
-            } catch (InvalidUserOptionException e) {
-                view.printMessage(e.getMessage());
-                continue;
-            }
             boolean shouldContinue = false;
             try {
-                shouldContinue = handleUserQuery(desicion);
+                shouldContinue = handleUserQuery(decision);
             } catch (IOException e) {
                 view.printMessage(EnrolleeView.PROBLEM_WITH_STORAGE);
             }

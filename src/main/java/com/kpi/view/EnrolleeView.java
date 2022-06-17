@@ -1,8 +1,6 @@
 package com.kpi.view;
 
 import com.kpi.model.entities.Enrollee;
-import com.kpi.view.exceptions.InvalidUserOptionException;
-import com.kpi.view.utilities.UserOptionsValidator;
 
 import java.util.List;
 import java.util.Scanner;
@@ -34,12 +32,22 @@ public class EnrolleeView {
         }
     }
 
-    public int getUserDecision() throws InvalidUserOptionException {
-        printMessage("What do you want to do?");
-        printAvailableOptions();
-        int input = getIntegerInput();
+    public int getUserDecision() {
+        int input;
 
-        UserOptionsValidator.validateUserOption(input);
+        while (true) {
+            printMessage("What do you want to do?");
+            printAvailableOptions();
+            input = getIntegerInput();
+            boolean isValid = input >= 1 && input <= 5;
+
+            if (!isValid){
+                printMessage("Invalid option selected. Please, try again.");
+            }
+            else {
+                break;
+            }
+        }
 
         return input;
     }
