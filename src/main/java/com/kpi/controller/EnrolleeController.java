@@ -7,7 +7,6 @@ import com.kpi.model.services.EnrolleeService;
 import com.kpi.model.utilities.EnrolleeGenerator;
 import com.kpi.view.EnrolleeView;
 import com.kpi.view.exceptions.InvalidUserOptionException;
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -19,7 +18,6 @@ import java.util.List;
 import java.util.Properties;
 
 public class EnrolleeController {
-    private List<Enrollee> inMemoreEnrollees = new ArrayList<>();
     private final EnrolleeService service;
     private final EnrolleeView view;
     private static final Logger logger = LogManager.getLogger(EnrolleeController.class);
@@ -33,7 +31,7 @@ public class EnrolleeController {
         try {
             file = loadFileFromResources();
         } catch (IOException e) {
-            view.printMessage(EnrolleeView.FAILED_TO_LOAD_DATA);
+            view.printMessage(EnrolleeView.FAILED_TO_LOAD_FILE);
             logger.error("Unable to load the file" + e.getMessage());
             System.exit(0);
         }
@@ -44,16 +42,9 @@ public class EnrolleeController {
     public void start() {
         logger.info("Application started");
 
-        try {
-            view.printEnrollees(service.getEnrollees());
-        } catch (IOException e) {
-            logger.error("Can't extract the data from the enrollee storage");
-            view.printMessage(EnrolleeView.PROBLEM_WITH_STORAGE);
-        }
-
         while (true){
 
-            int desicion = 0;
+            int desicion;
             try {
                 desicion = view.getUserDecision();
             } catch (InvalidUserOptionException e) {
@@ -64,7 +55,7 @@ public class EnrolleeController {
             try {
                 shouldContinue = handleUserQuery(desicion);
             } catch (IOException e) {
-                view.printMessage(EnrolleeView.PROBLEM_WITH_PARSING);
+                view.printMessage(EnrolleeView.PROBLEM_WITH_STORAGE);
             }
 
             if (!shouldContinue) break;
@@ -76,7 +67,7 @@ public class EnrolleeController {
     private boolean handleUserQuery(int option) throws IOException {
         switch (option) {
             case 1:
-                inMemoreEnrollees = EnrolleeGenerator.generateEnrollees();
+                List<Enrollee> inMemoreEnrollees = EnrolleeGenerator.generateEnrollees();
                 view.printMessage("We've generated 10 new enrollees!");
                 view.printEnrollees(inMemoreEnrollees);
                 view.printMessage("You can save them choosing appropriate option.");

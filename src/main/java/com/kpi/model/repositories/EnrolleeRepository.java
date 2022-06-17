@@ -1,5 +1,6 @@
 package com.kpi.model.repositories;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.kpi.model.entities.Enrollee;
 import com.kpi.model.utilities.JSONConverter;
 

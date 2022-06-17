@@ -17,9 +17,8 @@ public class EnrolleeView {
     public static final String LIST_FOOTER =
             "+-----------------+-----------------+-----------------+----------------------+--------------------+-----------------------+--------------------------------+-----+";
     public static final String EMPTY_LIST = "Your list is empty!";
-    public static final String FAILED_TO_LOAD_DATA = "Failed to load data.";
+    public static final String FAILED_TO_LOAD_FILE = "Failed to load the data file.";
     public static final String PROBLEM_WITH_STORAGE = "Can't load the storage";
-    public static final String PROBLEM_WITH_PARSING = "Can't parse the values";
 
     public void printMessage(String message) {
         System.out.println(message);
@@ -50,7 +49,7 @@ public class EnrolleeView {
         printMessage("Enter [2] to print enrollees");
         printMessage("Enter [3] to get enrollees with bad grades");
         printMessage("Enter [4] to get enrollees with min. GPA");
-        printMessage("Enter [5] to exit without saving data");
+        printMessage("Enter [5] to exit");
     }
 
     public double getMinGPA() {

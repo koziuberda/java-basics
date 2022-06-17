@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d60f0722-4e0d-4c9e-a372-ba103b838303" name="Changes" comment="Add custom exceptions and validators">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.xml" afterDir="false" />
+    <list default="true" id="d60f0722-4e0d-4c9e-a372-ba103b838303" name="Changes" comment="Minor fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kpi/controller/EnrolleeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kpi/controller/EnrolleeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kpi/model/repositories/EnrolleeFileRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kpi/model/repositories/EnrolleeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kpi/model/repositories/EnrolleeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/kpi/model/services/EnrolleeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kpi/model/services/EnrolleeService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kpi/view/EnrolleeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kpi/view/EnrolleeView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.json" afterDir="false" />
     </list>
@@ -116,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655319943101</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add logging, fix confirmation bug, remove unnecessary interface">
+      <created>1655405090749</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1655405090749</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,17 +139,8 @@
     <MESSAGE value="Improve application flow" />
     <MESSAGE value="Minor improvements" />
     <MESSAGE value="Add custom exceptions and validators" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add custom exceptions and validators" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/kpi/view/EnrolleeView.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Add logging, fix confirmation bug, remove unnecessary interface" />
+    <MESSAGE value="Minor fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor fixes" />
   </component>
 </project>
